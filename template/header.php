@@ -21,7 +21,7 @@
                         <a class="nav-link active" href="./">Reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar Sala</a>
+                        <a class="nav-link active" href="./cad-sala.php">Cadastrar Sala</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Cadastrar Docente</a>

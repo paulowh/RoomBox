@@ -33,7 +33,7 @@
             - area do docente
             - RA docente
         - cad. salas
-            - nº sala
+            - nº sala - > nome sala
             - qnts suporte de alunos
             - tipo sala
             - situação
@@ -49,5 +49,7 @@
 ```git
 
 git add .
+git commit -m"comentario"
+git push
 
 ```
