@@ -43,9 +43,6 @@
             - identificação da turma
             - horario da turma
 
-
-
-
 ```git
 
 git add .
@@ -53,3 +50,8 @@ git commit -m"comentario"
 git push
 
 ```
+
+oque é .env?
+oque é .env-exemple?
+oque é o arquivo config.php
+.gitignore
