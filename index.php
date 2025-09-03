@@ -17,7 +17,7 @@ $resultados = $conn->query($scriptConsulta)->fetchAll();
 // var_dump($resultados);
 ?>
 
-<section class="container vh-100">
+<section class="container vh-100 mt-5">
 
     <table class="table table-striped table-hover">
         <thead>

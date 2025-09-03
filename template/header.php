@@ -18,7 +18,7 @@
         <div class="container">
             <div class="navbar-collapse d-lg-flex">
                 <a class="navbar-brand col-lg-3 me-0" href="#">Sisteminha Top</a>
-                <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <ul class="navbar-nav col-lg-6 justify-content-lg-center gap-4">
                     <li class="nav-item">
                         <a class="nav-link active" href="./">Reservas</a>
                     </li>
