@@ -1,6 +1,6 @@
 <?php
 include './template/header.php';
-include './template/modal-cadastro-sala.php';
+include './template/modal-cadastro-sala.html';
 
 $script = 'SELECT * FROM tb_sala';
 

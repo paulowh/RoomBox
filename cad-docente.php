@@ -1,7 +1,7 @@
 <?php
 
 include './template/header.php';
-include './template/modal-cadastro-docente.php';
+include './template/modal-cadastro-docente.html';
 
 $script = 'SELECT * FROM tb_docente';
 

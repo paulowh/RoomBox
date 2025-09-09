@@ -1,6 +1,6 @@
 <?php
 include './template/header.php';
-include './template/modal-cadastro-turma.php';
+include './template/modal-cadastro-turma.html';
 
 $script = 'SELECT * FROM tb_turma';
 

@@ -64,4 +64,4 @@
         </div>
     </header>
 
-    <?php include './template/modal-reserva.php' ?>
+    <?php include './template/modal-reserva.html' ?>
