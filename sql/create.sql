@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS db_roombox;
+USE db_roombox;
+
 CREATE TABLE IF NOT EXISTS `tb_reserva_sala` (
     `id` int AUTO_INCREMENT NOT NULL UNIQUE,
     `sala_id` int,
