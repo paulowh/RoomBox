@@ -27,6 +27,12 @@ echo.
 set /p OPCAO=Escolha uma opção [1-5]:
 
 REM Validação de entrada
+
+if "%OPCAO%"=="q" (
+    echo Saindo...
+    exit
+)
+
 if not "%OPCAO%"=="1" if not "%OPCAO%"=="2" if not "%OPCAO%"=="3" if not "%OPCAO%"=="4" if not "%OPCAO%"=="5" (
     echo Opção inválida. Tente novamente.
     pause
@@ -87,10 +93,7 @@ if "%OPCAO%"=="5" (
     echo Backup salvo como %BACKUP%
 )
 
-if "%OPCAO%"=="q" (
-    echo Saindo...
-    exit
-)
+
 echo.
 echo Operação concluída. Verifique o log em %LOG%
 pause
