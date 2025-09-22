@@ -16,8 +16,8 @@ echo ===========================================
 echo         GERENCIADOR DE BANCO DE TESTES
 echo ===========================================
 echo.
-echo 1 - Criar banco e tabelas (CREATE)
-echo 2 - Atualizar dados (INSERT)
+echo 1 - Criar banco e tabelas (CREATE e INSERT)
+@REM echo 2 - Atualizar dados (INSERT)
 echo 3 - Resetar banco (com backup)
 echo 4 - Resetar banco (sem backup)
 echo 5 - backup outros bancos
@@ -33,7 +33,7 @@ if "%OPCAO%"=="q" (
     exit
 )
 
-if not "%OPCAO%"=="1" if not "%OPCAO%"=="2" if not "%OPCAO%"=="3" if not "%OPCAO%"=="4" if not "%OPCAO%"=="5" (
+if not "%OPCAO%"=="1" if not "%OPCAO%"=="3" if not "%OPCAO%"=="4" if not "%OPCAO%"=="5" (
     echo Opção inválida. Tente novamente.
     pause
     goto MENU
@@ -43,10 +43,8 @@ if "%OPCAO%"=="1" (
     echo [CREATE] Criando banco e tabelas...
     %MYSQL% -u %USUARIO% < create.sql >> %LOG%
     echo Banco criado com sucesso!
-)
 
-if "%OPCAO%"=="2" (
-    echo [INSERT] Atualizando dados...
+    echo [INSERT] Inserindo dados...
     %MYSQL% -u %USUARIO% %BANCO% < insert.sql >> %LOG%
     echo Dados atualizados com sucesso!
 )
