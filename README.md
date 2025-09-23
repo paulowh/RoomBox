@@ -38,14 +38,14 @@ RoomBox/
 ├── 🚫 .gitignore                  # Arquivos ignorados pelo Git
 ├── 📜 LICENSE                     # Licença do projeto
 ├── 📖 README.md                   # Documentação do projeto
-├── ⚙️ admin.php                    # Interface administrativa
+├── ⚙️ admin.php                   # Interface administrativa
 ├── 🔌 config.php                  # Configuração do banco de dados
-├── 👨‍🏫 docente.php                  # Gerenciamento de docentes
+├── 👨‍🏫 docente.php                 # Gerenciamento de docentes
 ├── 🏠 index.php                   # Página inicial/login
 ├── ❌ reserva-delete.php          # Exclusão de reservas
 ├── 📅 reserva.php                 # Gerenciamento de reservas
 ├── ➕ sala-cadastro.php           # Cadastro de salas
-├── 🏛️ sala.php                     # Gerenciamento de salas
+├── 🏛️ sala.php                    # Gerenciamento de salas
 ├── 👥 turma.php                   # Gerenciamento de turmas
 ├── 📸 upload-perfil.php           # Upload de fotos de perfil
 ├── 👤 usuario.php                 # Gerenciamento de usuários
@@ -57,13 +57,13 @@ RoomBox/
 ├── 🔤 fonts/                      # Fontes tipográficas
 │   ├── bootstrap-icons.woff       # Fonte de ícones Bootstrap
 │   └── ...                        # Outras fontes
-├── 🖼️ img/                         # Imagens do sistema
+├── 🖼️ img/                        # Imagens do sistema
 │   ├── icon.png                   # Ícone principal do sistema
 │   ├── perfil.jpg                 # Imagem padrão de perfil
 │   └── users/                     # Fotos de perfil dos usuários
 ├── ⚡ js/                         # Scripts JavaScript
 │   └── bootstrap.bundle.min.js    # Framework JS Bootstrap
-├── 🗄️ sql/                         # Scripts de banco de dados
+├── 🗄️ sql/                        # Scripts de banco de dados
 │   ├── create.sql                 # Script de criação das tabelas
 │   ├── insert.sql                 # Script de inserção de dados
 │   ├── db_tool.bat                # Ferramenta de gerenciamento do BD
