@@ -27,7 +27,9 @@
                         </div>
 
                         <!-- Formulário de Login -->
-                        <form action="./reserva.php" method="POST" id="loginForm">
+                        <form action="./login-aux.php" method="POST" id="loginForm">
+                            <!-- campo para ativar a validação no aq login-aux.php -->
+                            <input type="hidden" name="login" value="1">
                             <!-- Campo Email/Usuário -->
                             <div class="form-floating mb-3">
                                 <input type="text"
