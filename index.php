@@ -27,7 +27,8 @@
                         </div>
 
                         <!-- Formulário de Login -->
-                        <form action="./reserva.php" method="POST" id="loginForm">
+                        <form action="./login-aux.php" method="POST" id="loginForm">
+                        <!--campo paara ativar a validação do arquivo-->
                             <!-- Campo Email/Usuário -->
                             <div class="form-floating mb-3">
                                 <input type="text"

@@ -1,6 +1,9 @@
 <?php
-
 include './template/header.php';
+
+
+
+
 
 $scriptConsulta = "SELECT 
                     trs.id, ts.identificacao as 'nome_sala', 
