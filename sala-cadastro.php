@@ -17,5 +17,5 @@ $resultado = $conn->prepare($script)->execute([
 
 if ($resultado == true) {
     $ultimoId = $conn->lastInsertId();
-    header("location:./cad-sala.php?lastId={$ultimoId}");
+    header("location:./sala.php?lastId={$ultimoId}");
 }

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoomBox - Login</title>
 
-    <link rel="stylesheet" href="./css/bootstrap.min.css" >
+    <link rel="shortcut icon" href="./img/icon.png" type="image/png">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -25,15 +27,15 @@
                         </div>
 
                         <!-- Formulário de Login -->
-                        <form action="./cad-reserva.php" method="POST" id="loginForm">
+                        <form action="./reserva.php" method="POST" id="loginForm">
                             <!-- Campo Email/Usuário -->
                             <div class="form-floating mb-3">
-                                <input type="text" 
-                                       class="form-control form-control-lg" 
-                                       id="usuario" 
-                                       name="usuario" 
-                                       placeholder="Digite seu usuário"
-                                       required>
+                                <input type="text"
+                                    class="form-control form-control-lg"
+                                    id="usuario"
+                                    name="usuario"
+                                    placeholder="Digite seu usuário"
+                                    required>
                                 <label for="usuario">
                                     <i class="bi bi-person me-2"></i>Usuário
                                 </label>
@@ -41,26 +43,14 @@
 
                             <!-- Campo Senha -->
                             <div class="form-floating mb-4">
-                                <input type="password" 
-                                       class="form-control form-control-lg" 
-                                       id="senha" 
-                                       name="senha" 
-                                       placeholder="Digite sua senha"
-                                       required>
+                                <input type="password"
+                                    class="form-control form-control-lg"
+                                    id="senha"
+                                    name="senha"
+                                    placeholder="Digite sua senha"
+                                    required>
                                 <label for="senha">
                                     <i class="bi bi-key me-2"></i>Senha
-                                </label>
-                            </div>
-
-                            <!-- Checkbox Lembrar -->
-                            <div class="form-check mb-4">
-                                <input class="form-check-input" 
-                                       type="checkbox" 
-                                       value="1" 
-                                       id="lembrarMe"
-                                       name="lembrarMe">
-                                <label class="form-check-label" for="lembrarMe">
-                                    Lembrar-me neste dispositivo
                                 </label>
                             </div>
 
@@ -70,6 +60,14 @@
                                     <i class="bi bi-box-arrow-in-right me-2"></i>
                                     Entrar no Sistema
                                 </button>
+                            </div>
+
+                            <!-- Botão Cadastrar Usuário -->
+                            <div class="d-grid mb-3">
+                                <a href="./usuario.php" class="btn btn-outline-primary btn-lg">
+                                    <i class="bi bi-person-plus me-2"></i>
+                                    Cadastrar Usuário
+                                </a>
                             </div>
 
                             <!-- Link Esqueci a Senha -->
@@ -125,14 +123,14 @@
                     <p class="text-muted mb-3">
                         Digite seu usuário para receber instruções de recuperação de senha.
                     </p>
-                    <form action="./cad-reserva.php" method="POST">
+                    <form action="./reserva.php" method="POST">
                         <div class="form-floating mb-3">
-                            <input type="text" 
-                                   class="form-control" 
-                                   id="usuarioRecuperacao" 
-                                   name="usuarioRecuperacao" 
-                                   placeholder="Digite seu usuário"
-                                   required>
+                            <input type="text"
+                                class="form-control"
+                                id="usuarioRecuperacao"
+                                name="usuarioRecuperacao"
+                                placeholder="Digite seu usuário"
+                                required>
                             <label for="usuarioRecuperacao">
                                 <i class="bi bi-person me-2"></i>Usuário
                             </label>
@@ -149,26 +147,6 @@
         </div>
     </div>
 
-    <script>
-        // Adicionar efeito de loading no botão
-        // document.getElementById('loginForm').addEventListener('submit', function(e) {
-        //     const btn = this.querySelector('button[type="submit"]');
-        //     btn.innerHTML = '<i class="bi bi-arrow-clockwise me-2"></i>Entrando...';
-        //     btn.disabled = true;
-        // });
-
-        // // Animação de entrada
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const card = document.querySelector('.login-card');
-        //     card.style.opacity = '0';
-        //     card.style.transform = 'translateY(30px)';
-            
-        //     setTimeout(() => {
-        //         card.style.transition = 'all 0.5s ease';
-        //         card.style.opacity = '1';
-        //         card.style.transform = 'translateY(0)';
-        //     }, 100);
-        // });
-    </script>
 </body>
+
 </html>

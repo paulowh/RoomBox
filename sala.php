@@ -69,15 +69,15 @@ $resultadoPesquisa = $conn->query($script)->fetchAll();
                                                     <button type="button" class="btn btn-sm btn-outline-primary" title="Visualizar">
                                                         <i class="bi bi-eye"></i>
                                                     </button>
-                                                    <a href="./sala-editar.php?id_editar=<?= $linha['id'] ?>" 
-                                                       class="btn btn-sm btn-outline-secondary" 
-                                                       title="Editar">
+                                                    <a href="./sala-editar.php?id_editar=<?= $linha['id'] ?>"
+                                                        class="btn btn-sm btn-outline-secondary"
+                                                        title="Editar">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <a href="./sala-deletar.php?id_deletar=<?= $linha['id'] ?>" 
-                                                       class="btn btn-sm btn-outline-danger" 
-                                                       title="Excluir"
-                                                       onclick="return confirm('Tem certeza que deseja excluir esta sala?')">
+                                                    <a href="./sala-deletar.php?id_deletar=<?= $linha['id'] ?>"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        title="Excluir"
+                                                        onclick="return confirm('Tem certeza que deseja excluir esta sala?')">
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
                                                 </div>
@@ -104,4 +104,5 @@ $resultadoPesquisa = $conn->query($script)->fetchAll();
 </main>
 
 </body>
+
 </html>
