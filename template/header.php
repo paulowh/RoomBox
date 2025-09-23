@@ -7,8 +7,7 @@ session_start();
 
 $usuario = new Usuario();
 $usuario->fnUsuarioLogado();
-session_destroy();
-exit;
+
 ?>
 
 <head>

@@ -27,5 +27,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['sair'] == 1){
 
     $usuario = new Usuario();
     $usuario->fnDeslogarUsuario();
-    header('location./');
+    header('location:./');
 }
