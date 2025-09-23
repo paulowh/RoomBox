@@ -66,13 +66,7 @@ class Usuario
 
     public function fnDeslogarUsuario()
     {
-        $_SESSION['usuario_logado'] = false;
-        $_SESSION['usuario_id'] = '';
-        $_SESSION['usuario_tipo'] = '';
-
-        $_SESSION['docente_id'] = '';
-        $_SESSION['docente_nome'] = '';
-        $_SESSION['docente_area'] = '';
+        session_start();
 
         session_destroy();
     }
