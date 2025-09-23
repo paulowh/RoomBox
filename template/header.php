@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php require_once './config.php'; ?>
+<?php require_once './config.php'; 
+include './class/Usuario.php';
+session_start();
+
+$usuario = new Usuario();
+$usuario->fnUsuarioLogado();
+session_destroy();
+exit;
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +61,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="./">
+                        <li><a class="dropdown-item" href="./login-aux.php?sair=1">
                                 <i class="bi bi-box-arrow-right me-2"></i>
                                 Sair
                             </a>
