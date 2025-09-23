@@ -1,6 +1,9 @@
 <?php
 
+
 include './template/header.php';
+
+
 
 $scriptConsulta = "SELECT 
                     trs.id, ts.identificacao as 'nome_sala', 
@@ -13,8 +16,6 @@ $scriptConsulta = "SELECT
                    WHERE trs.deletado != 1";
 
 $resultados = $conn->query($scriptConsulta)->fetchAll();
-
-// var_dump($resultados);
 ?>
 
 <main class="container mt-5">
