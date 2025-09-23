@@ -2,3 +2,4 @@
 /vscode
 /vendor
 /sql/log_banco.txt
+/sql/backup*.sql

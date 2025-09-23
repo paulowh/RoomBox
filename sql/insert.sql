@@ -23,7 +23,10 @@ INSERT INTO tb_docente (nome, area, ra_docente) VALUES
 ('Fernanda Lima', 'Biologia', 'D234567'),
 ('João Silva', 'Informática', 'D345678'),
 ('Mariana Costa', 'Enfermagem', 'D456789'),
-('Roberto Nunes', 'Física', 'D567890');
+('Roberto Nunes', 'Física', 'D567890'),
+('Guto Xavier', 'Programção', 'D678901'),
+('Paulo Santos', 'Programação', 'D789012'),
+('Vagner Vagner', 'Manunteção', 'D890123');
 
 INSERT INTO tb_turma (nome, sigla, periodo, quant_alunos) VALUES
 ('Turma de Matemática Aplicada', 'MAT01', 'Noturno', 28),
@@ -38,3 +41,11 @@ INSERT INTO tb_reserva_sala (sala_id, turma_id, docente_id) VALUES
 (6, 3, 3),  -- Hardware para Informática
 (2, 2, 2),  -- Sala Convencional para Biologia
 (10, 5, 5); -- Laboratório para Física
+
+-- Inserir usuários de acesso
+INSERT INTO tb_usuario (usuario, senha, docente_id, nivel_adm) VALUES
+('admin', 'admin', 6, 1),           
+('fernanda.lima', 'senha123', 2, 0),   
+('vagner3d', 'impressora3d', 8, 0),  
+('gutoffline', 'palhacoprofissional', 6, 0),      
+('paulosantos', 'setudoimportanadaimporta', 7, 1);         

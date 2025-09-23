@@ -8,10 +8,12 @@ RoomBox é um sistema web desenvolvido em PHP para gerenciamento e reserva de sa
 
 ## ✨ Funcionalidades
 
+- **Sistema de Autenticação**: Login com usuário e senha, controle de níveis de acesso (usuário/administrador)
 - **Gerenciamento de Salas**: Cadastro e controle de salas com informações sobre capacidade, tipo e status
 - **Cadastro de Docentes**: Registro de professores com suas respectivas áreas de atuação
 - **Controle de Turmas**: Gerenciamento de turmas com informações de período e quantidade de alunos
 - **Sistema de Reservas**: Reserva de salas para turmas específicas com docentes responsáveis
+- **Controle de Usuários**: Cadastro de usuários vinculados aos docentes com diferentes níveis de permissão
 - **Interface Responsiva**: Design moderno e responsivo usando Bootstrap 5
 - **Operações CRUD**: Criação, leitura, atualização e exclusão de registros
 
@@ -126,33 +128,49 @@ db_tool.bat
 ===========================================
 
 1 - Criar banco e tabelas (CREATE e INSERT)
-3 - Resetar banco (com backup)
-4 - Resetar banco (sem backup)
-5 - backup outros bancos
+2 - Resetar banco (sem backup)
+3 - Fazer backup do banco padrão [db_roombox]
+4 - Listar bancos existentes
 q - Sair
 
-Escolha uma opção [1-5]: 1
+Escolha uma opção [1-4]: 1
 ```
 
 Esta opção irá:
 - Criar o banco de dados `db_roombox`
-- Criar todas as tabelas necessárias
-- Inserir dados de exemplo
+- Criar todas as 5 tabelas necessárias (salas, docentes, turmas, reservas e usuários)
+- Inserir dados de exemplo:
+  - 18 salas de diferentes tipos
+  - 8 docentes de várias áreas
+  - 5 turmas com diferentes períodos
+  - 5 reservas de exemplo
+  - 5 usuários (1 super admin, 1 administrador e 3 usuários comuns)
 
 ### 5. Acessar o Sistema
 
 1. Abra seu navegador
 2. Acesse: `http://localhost/RoomBox`
-3. Faça login com qualquer usuário/senha para acessar o sistema
+3. Use um dos usuários cadastrados para fazer login:
+
+### 👤 Usuários de Teste Disponíveis:
+
+| Usuário | Senha | Nível | Docente Vinculado |
+|---------|--------|--------|-------------------|
+| **admin** | `admin` | 🔑 Admin | Guto Xavier |
+| **paulosantos** | `setudoimportanadaimporta` | 🔑 Administrador | Paulo Santos |
+| fernanda.lima | `senha123` | 👤 Usuário | Fernanda Lima |
+| gutoffline | `palhacoprofissional` | 👤 Usuário | Guto Xavier |
+| vagner3d | `impressora3d` | 👤 Usuário | Vagner Vagner |
 
 ## 📊 Estrutura do Banco de Dados
 
-O sistema utiliza 4 tabelas principais:
+O sistema utiliza 5 tabelas principais:
 
 - **tb_sala**: Informações das salas (identificação, capacidade, tipo, status)
 - **tb_docente**: Dados dos professores (nome, área, RA)
 - **tb_turma**: Informações das turmas (nome, sigla, período, quantidade de alunos)
 - **tb_reserva_sala**: Reservas (relaciona sala, turma e docente)
+- **tb_usuario**: Controle de acesso (usuário, senha, nível administrativo, vinculação com docente)
 
 ## 🔧 Ferramentas de Desenvolvimento
 
@@ -160,10 +178,10 @@ O sistema utiliza 4 tabelas principais:
 
 Script utilitário para gerenciamento do banco de dados:
 
-- **Opção 1**: Criar banco e inserir dados iniciais
-- **Opção 3**: Resetar banco com backup
-- **Opção 4**: Resetar banco sem backup
-- **Opção 5**: Backup de outros bancos
+- **Opção 1**: Criar banco e inserir dados iniciais (CREATE e INSERT)
+- **Opção 2**: Resetar banco (sem backup)
+- **Opção 3**: Fazer backup do banco padrão [db_roombox]
+- **Opção 4**: Listar bancos existentes
 
 ### Arquivos de Configuração
 

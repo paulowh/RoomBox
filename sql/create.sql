@@ -35,6 +35,15 @@ CREATE TABLE IF NOT EXISTS `tb_turma` (
     PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `tb_usuario` (
+    `id` int AUTO_INCREMENT NOT NULL UNIQUE,
+    `usuario` varchar(50) NOT NULL UNIQUE,
+    `senha` varchar(255) NOT NULL,
+    `docente_id` int NOT NULL,
+    `nivel_adm` boolean DEFAULT '0' COMMENT '0 - USUÁRIO, 1 - ADMINISTRADOR',
+    PRIMARY KEY (`id`)
+);
+
 ALTER TABLE `tb_reserva_sala`
 ADD CONSTRAINT `tb_reserva_sala_fk1` FOREIGN KEY (`sala_id`) REFERENCES `tb_sala` (`id`);
 
@@ -43,6 +52,9 @@ ADD CONSTRAINT `tb_reserva_sala_fk2` FOREIGN KEY (`turma_id`) REFERENCES `tb_tur
 
 ALTER TABLE `tb_reserva_sala`
 ADD CONSTRAINT `tb_reserva_sala_fk3` FOREIGN KEY (`docente_id`) REFERENCES `tb_docente` (`id`);
+
+ALTER TABLE `tb_usuario`
+ADD CONSTRAINT `tb_usuario_fk1` FOREIGN KEY (`docente_id`) REFERENCES `tb_docente` (`id`);
 
 ALTER TABLE `tb_reserva_sala`
 ADD COLUMN `deletado` BOOLEAN NOT NULL COMMENT '0 - NÃO, 1 - SIM' DEFAULT '0'
