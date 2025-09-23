@@ -55,8 +55,9 @@ class Usuario {
 
 
         public function fnDeslogarUsuario(){
+            session_start();
             session_destroy();
-            header("Location: ./index.php");
+            
         }
 
 
