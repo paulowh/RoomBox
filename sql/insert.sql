@@ -87,19 +87,18 @@ UPDATE tb_docente SET
     caminho_arquivo = '/users/IMG_4847.jpg'
 WHERE id = 5; -- Roberto Nunes
 
--- Guto Xavier (ID 6) mantém valores NULL (sem foto)
 
 UPDATE tb_docente SET 
     nome_arquivo = 'IMG_7522.JPEG',
     tipo_arquivo = 'jpeg',
     caminho_arquivo = '/users/IMG_7522.JPEG'
-WHERE id = 7; -- Paulo Santos (conforme solicitado)
+WHERE id = 7; -- Paulo Santos
 
 UPDATE tb_docente SET 
     nome_arquivo = 'IMG_4432.png',
     tipo_arquivo = 'png',
     caminho_arquivo = '/users/IMG_4432.png'
-WHERE id = 8; -- Vagner Vagner (conforme solicitado)
+WHERE id = 8; -- Vagner Vagner
 
 UPDATE tb_docente SET 
     nome_arquivo = 'IMG_4854.jpg',
