@@ -27,8 +27,10 @@
                         </div>
 
                         <!-- Formulário de Login -->
-                        <form action="./reserva.php" method="POST" id="loginForm">
+                        <form action="./login-aux.php" method="POST" id="loginForm">
                             <!-- Campo Email/Usuário -->
+                            <input type="hidden" name="login" value="1">
+
                             <div class="form-floating mb-3">
                                 <input type="text"
                                     class="form-control form-control-lg"
