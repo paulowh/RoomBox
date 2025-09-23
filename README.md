@@ -33,24 +33,48 @@ RoomBox é um sistema web desenvolvido em PHP para gerenciamento e reserva de sa
 
 ```
 RoomBox/
-├── css/                    # Arquivos de estilo
-│   ├── bootstrap.min.css
-│   ├── bootstrap-icons.min.css
-│   └── style.css
-├── js/                     # Scripts JavaScript
-│   └── bootstrap.bundle.min.js
-├── img/                    # Imagens do sistema
-├── sql/                    # Scripts de banco de dados
-│   ├── create.sql         # Script de criação das tabelas
-│   ├── insert.sql         # Script de inserção de dados
-│   └── db_tool.bat        # Ferramenta de gerenciamento do BD
-├── template/               # Templates e modais
-├── config.php             # Configuração do banco de dados
-├── index.php              # Página de login
-├── cad-reserva.php        # Gerenciamento de reservas
-├── cad-sala.php           # Cadastro de salas
-├── cad-docente.php        # Cadastro de docentes
-└── cad-turma.php          # Cadastro de turmas
+├── 🔧 .env                        # Variáveis de ambiente (configuração local)
+├── 📋 .env-exemplo                # Template de configuração
+├── 🚫 .gitignore                  # Arquivos ignorados pelo Git
+├── 📜 LICENSE                     # Licença do projeto
+├── 📖 README.md                   # Documentação do projeto
+├── ⚙️ admin.php                    # Interface administrativa
+├── 🔌 config.php                  # Configuração do banco de dados
+├── 👨‍🏫 docente.php                  # Gerenciamento de docentes
+├── 🏠 index.php                   # Página inicial/login
+├── ❌ reserva-delete.php          # Exclusão de reservas
+├── 📅 reserva.php                 # Gerenciamento de reservas
+├── ➕ sala-cadastro.php           # Cadastro de salas
+├── 🏛️ sala.php                     # Gerenciamento de salas
+├── 👥 turma.php                   # Gerenciamento de turmas
+├── 📸 upload-perfil.php           # Upload de fotos de perfil
+├── 👤 usuario.php                 # Gerenciamento de usuários
+├── 📦 class/                      # Classes PHP (em desenvolvimento)
+├── 🎨 css/                        # Arquivos de estilo
+│   ├── bootstrap.min.css          # Framework CSS Bootstrap
+│   ├── bootstrap-icons.min.css    # Ícones do Bootstrap
+│   └── style.css                  # Estilos personalizados
+├── 🔤 fonts/                      # Fontes tipográficas
+│   ├── bootstrap-icons.woff       # Fonte de ícones Bootstrap
+│   └── ...                        # Outras fontes
+├── 🖼️ img/                         # Imagens do sistema
+│   ├── icon.png                   # Ícone principal do sistema
+│   ├── perfil.jpg                 # Imagem padrão de perfil
+│   └── users/                     # Fotos de perfil dos usuários
+├── ⚡ js/                         # Scripts JavaScript
+│   └── bootstrap.bundle.min.js    # Framework JS Bootstrap
+├── 🗄️ sql/                         # Scripts de banco de dados
+│   ├── create.sql                 # Script de criação das tabelas
+│   ├── insert.sql                 # Script de inserção de dados
+│   ├── db_tool.bat                # Ferramenta de gerenciamento do BD
+│   └── ...                        # Backups e logs
+└── 🧩 template/                   # Templates e componentes
+    ├── header.php                 # Cabeçalho comum das páginas
+    ├── modal-*.html               # Modais de cadastro (docente, sala, turma, etc.)
+    └── admin/                     # Templates da área administrativa
+        ├── sidebar.php            # Barra lateral do admin
+        ├── tab-*.php              # Abas de gestão (usuários, salas, etc.)
+        └── ...                    # Outros componentes admin
 ```
 
 ## 🚀 Como Começar
