@@ -6,8 +6,6 @@ include './template/header.php';
 
 
 $scriptConsulta = "SELECT 
-                    trs.id, ts.identificacao as 'nome_sala', 
-                    td.nome as 'nome_docente', 
                     tt.sigla as 'sigla_turma'
                    FROM tb_reserva_sala trs
                     INNER JOIN tb_sala ts ON trs.sala_id = ts.id
