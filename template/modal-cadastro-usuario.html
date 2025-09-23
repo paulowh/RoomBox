@@ -1,0 +1,110 @@
+<!-- Modal de Cadastro de Usuário -->
+<div class="modal fade" id="modalCadastroUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalCadastroUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-person-plus-fill me-2"></i>
+                    <h1 class="modal-title fs-5 mb-0" id="modalCadastroUsuarioLabel">Cadastrar Novo Usuário</h1>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-4">
+                <div class="mb-3">
+                    <p class="text-muted mb-3">Preencha as informações abaixo para cadastrar um novo usuário no sistema
+                    </p>
+                </div>
+
+                <form action="#" method="POST" id="form-usuario-cadastro">
+                    <div class="row g-3">
+                        <!-- Dropdown de Usuários Existentes -->
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">
+                                <i class="bi bi-people me-2 text-info"></i>Usuários Cadastrados no Sistema
+                            </label>
+                            <select class="form-select form-select-lg" id="usuariosExistentes">
+                                <option value="" selected>Selecione um usuário existente</option>
+                                <option value="joao.silva">João Silva Santos</option>
+                                <option value="maria.santos">Maria dos Santos</option>
+                                <option value="carlos.oliveira">Carlos Oliveira</option>
+                                <option value="ana.costa">Ana Costa Silva</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <hr class="my-3">
+                        </div>
+
+                        <!-- Campo Nome de Usuário -->
+                        <div class="col-md-6">
+                            <label for="modal-usuario" class="form-label fw-semibold">
+                                <i class="bi bi-at me-2 text-primary"></i>Nome de Usuário
+                            </label>
+                            <input type="text" class="form-control form-control-lg" placeholder="Ex: joao.silva"
+                                name="txtUsuario" id="modal-usuario" maxlength="50" required>
+                            <small class="text-muted">Máximo 50 caracteres</small>
+                        </div>
+
+                        <!-- Campo Nível de Acesso -->
+                        <div class="col-md-6">
+                            <label for="modal-nivel" class="form-label fw-semibold">
+                                <i class="bi bi-person-badge me-2 text-success"></i>Nível de Acesso
+                            </label>
+                            <select id="modal-nivel" name="txtNivel" class="form-select form-select-lg" required>
+                                <option value="" selected disabled>Selecione o nível</option>
+                                <option value="0">Usuário Comum (0)</option>
+                                <option value="1">Administrador (1)</option>
+                            </select>
+                        </div>
+
+                        <!-- Campo Senha -->
+                        <div class="col-md-6">
+                            <label for="modal-senha" class="form-label fw-semibold">
+                                <i class="bi bi-key me-2 text-warning"></i>Senha
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" placeholder="Digite a senha"
+                                    name="txtSenha" id="modal-senha" required>
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Campo Confirmar Senha -->
+                        <div class="col-md-6">
+                            <label for="modal-confirmar-senha" class="form-label fw-semibold">
+                                <i class="bi bi-shield-check me-2 text-warning"></i>Confirmar Senha
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg"
+                                    placeholder="Confirme a senha" name="txtConfirmarSenha" id="modal-confirmar-senha"
+                                    required>
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer bg-light p-3">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary" form="form-usuario-cadastro">
+                            <i class="bi bi-check-circle me-2"></i>Cadastrar Usuário
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -57,4 +57,26 @@ ALTER TABLE `tb_usuario`
 ADD CONSTRAINT `tb_usuario_fk1` FOREIGN KEY (`docente_id`) REFERENCES `tb_docente` (`id`);
 
 ALTER TABLE `tb_reserva_sala`
-ADD COLUMN `deletado` BOOLEAN NOT NULL COMMENT '0 - NÃO, 1 - SIM' DEFAULT '0'
+ADD COLUMN `deletado` BOOLEAN NOT NULL COMMENT '0 - NÃO, 1 - SIM' DEFAULT '0';
+
+-- Adicionando campos para gerenciamento de arquivos de foto do docente
+ALTER TABLE `tb_docente`
+ADD COLUMN `nome_arquivo` VARCHAR(255) NULL COMMENT 'Nome original do arquivo de foto',
+ADD COLUMN `tipo_arquivo` VARCHAR(50) NULL COMMENT 'Tipo MIME do arquivo (ex: image/jpeg)',
+ADD COLUMN `caminho_arquivo` VARCHAR(500) NULL COMMENT 'Caminho completo do arquivo no servidor';
+
+-- Adicionando campos de data e hora de criação para todas as tabelas
+ALTER TABLE `tb_reserva_sala`
+ADD COLUMN `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora de criação do registro';
+
+ALTER TABLE `tb_sala`
+ADD COLUMN `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora de criação do registro';
+
+ALTER TABLE `tb_docente`
+ADD COLUMN `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora de criação do registro';
+
+ALTER TABLE `tb_turma`
+ADD COLUMN `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora de criação do registro';
+
+ALTER TABLE `tb_usuario`
+ADD COLUMN `data_criacao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data e hora de criação do registro';

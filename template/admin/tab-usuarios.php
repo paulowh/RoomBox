@@ -1,4 +1,5 @@
 <!-- Aba Gerenciar Usuários -->
+ <?php  include './template/modal-cadastro-usuario.html' ?>
 <div class="tab-pane fade show active" id="usuarios">
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
@@ -7,9 +8,9 @@
         <div class="card-body">
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <a href="#" class="btn btn-success">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCadastroUsuario">
                         <i class="bi bi-person-plus me-2"></i>Novo Usuário
-                    </a>
+                    </button>
                 </div>
                 <div class="col-md-6">
                     <div class="input-group">

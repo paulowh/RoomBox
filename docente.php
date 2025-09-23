@@ -54,15 +54,15 @@ $resultadoPesquisa = $conn->query($script)->fetchAll();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($resultadoPesquisa as $index => $linha) { ?>
+                                    <?php foreach ($resultadoPesquisa as $linha) { ?>
                                         <tr class="align-middle">
                                             <td class="px-4 py-3">
                                                 <span class="badge bg-light text-dark">#<?= str_pad($linha['id'], 3, '0', STR_PAD_LEFT) ?></span>
                                             </td>
                                             <td class="py-3">
                                                 <div class="d-flex align-items-center">
-                                                    <div class="rounded-circle bg-info bg-gradient d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
-                                                        <i class="bi bi-person text-white"></i>
+                                                    <div class="rounded-circle bg-info bg-gradient d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; overflow: hidden;">
+                                                        <img src="./img/<?= !empty($linha['caminho_arquivo']) ? $linha['caminho_arquivo'] : 'perfil.jpg' ?>" alt="Foto do docente" class="rounded-circle" style="width: 32px; height: 32px; object-fit: cover;">
                                                     </div>
                                                     <div>
                                                         <div class="fw-semibold text-dark"><?= htmlspecialchars($linha['nome']) ?></div>
@@ -80,15 +80,15 @@ $resultadoPesquisa = $conn->query($script)->fetchAll();
                                                     <button type="button" class="btn btn-sm btn-outline-primary" title="Visualizar">
                                                         <i class="bi bi-eye"></i>
                                                     </button>
-                                                    <a href="./docente-editar.php?id_editar=<?= $linha['id'] ?>" 
-                                                       class="btn btn-sm btn-outline-secondary" 
-                                                       title="Editar">
+                                                    <a href="./docente-editar.php?id_editar=<?= $linha['id'] ?>"
+                                                        class="btn btn-sm btn-outline-secondary"
+                                                        title="Editar">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <a href="./docente-deletar.php?id_deletar=<?= $linha['id'] ?>" 
-                                                       class="btn btn-sm btn-outline-danger" 
-                                                       title="Excluir"
-                                                       onclick="return confirm('Tem certeza que deseja excluir este docente?')">
+                                                    <a href="./docente-deletar.php?id_deletar=<?= $linha['id'] ?>"
+                                                        class="btn btn-sm btn-outline-danger"
+                                                        title="Excluir"
+                                                        onclick="return confirm('Tem certeza que deseja excluir este docente?')">
                                                         <i class="bi bi-trash3"></i>
                                                     </a>
                                                 </div>
@@ -115,4 +115,5 @@ $resultadoPesquisa = $conn->query($script)->fetchAll();
 </main>
 
 </body>
+
 </html>

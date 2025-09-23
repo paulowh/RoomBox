@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="./css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Estilos personalizados simplificados para o novo layout */
+        .profile-upload-preview {
+            transition: transform 0.2s ease;
+        }
+
+        .profile-upload-preview:hover {
+            transform: scale(1.02);
+        }
+
+        /* Estilo para imagem clicável */
+        #profileImage {
+            transition: all 0.3s ease;
+        }
+
+        #profileImage:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
@@ -32,95 +53,100 @@
                                 <h5 class="text-success mb-3">
                                     <i class="bi bi-mortarboard me-2"></i>Dados do Docente
                                 </h5>
-                                <div class="row">
-                                    <!-- Nome do Docente (tb_docente.nome) -->
-                                    <div class="col-md-12 mb-3">
-                                        <div class="form-floating">
-                                            <input type="text"
-                                                class="form-control form-control-lg"
-                                                id="nomeDocente"
-                                                name="nomeDocente"
-                                                placeholder="Digite o nome completo do docente"
-                                                maxlength="100"
-                                                required>
-                                            <label for="nomeDocente">
-                                                <i class="bi bi-person me-2"></i>Nome do Docente (máx. 100 caracteres)
-                                            </label>
+                                <div class="row g-4">
+                                    <!-- Coluna da Foto (Esquerda) -->
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+
+                                            <!-- Preview da foto -->
+                                            <div class="mb-3">
+                                                <div class="position-relative d-inline-block">
+                                                    <img id="profileImage"
+                                                        src="./img/perfil.jpg"
+                                                        alt="Preview da foto"
+                                                        class="img-thumbnail rounded-circle"
+                                                        style="width: 150px; height: 150px; object-fit: cover; cursor: pointer;"
+                                                        onclick="document.getElementById('fotoPerfil').click();">
+                                                    <div class="position-absolute bottom-0 end-0">
+                                                        <label for="fotoPerfil" class="btn btn-success btn-sm rounded-circle" style="width: 35px; height: 35px;">
+                                                            <i class="bi bi-camera-fill"></i>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Input de arquivo (oculto) -->
+                                            <input type="file"
+                                                id="fotoPerfil"
+                                                name="fotoPerfil"
+                                                class="d-none"
+                                                accept="image/jpeg,image/jpg,image/png,image/gif"
+                                                onchange="previewFotoUsuario(this)">
+
                                         </div>
                                     </div>
 
-                                    <!-- Foto de Perfil (tb_docente.foto_perfil) -->
-                                    <div class="col-md-12 mb-3">
-                                        <label for="fotoPerfil" class="form-label text-muted">
-                                            <i class="bi bi-camera me-2"></i>Foto de Perfil (opcional)
-                                        </label>
-                                        <div class="input-group">
-                                            <input type="file"
-                                                class="form-control form-control-lg"
-                                                id="fotoPerfil"
-                                                name="fotoPerfil"
-                                                accept="image/jpeg,image/jpg,image/png,image/gif"
-                                                title="Selecione uma imagem (JPG, PNG ou GIF)">
-                                            <span class="input-group-text">
-                                                <i class="bi bi-image"></i>
-                                            </span>
-                                        </div>
-                                        <div class="form-text">
-                                            <small class="text-muted">
-                                                <i class="bi bi-info-circle me-1"></i>
-                                                Formatos aceitos: JPG, PNG, GIF. Tamanho máximo: 2MB
-                                            </small>
-                                        </div>
-                                        <!-- Preview da imagem -->
-                                        <div id="previewContainer" class="mt-3" style="display: none;">
-                                            <div class="text-center">
-                                                <img id="imagePreview" src="" alt="Preview da foto" 
-                                                     class="img-thumbnail rounded-circle" 
-                                                     style="width: 120px; height: 120px; object-fit: cover;">
-                                                <div class="mt-2">
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" 
-                                                            onclick="removerFoto()">
-                                                        <i class="bi bi-trash me-1"></i>Remover
-                                                    </button>
+                                    <!-- Coluna dos Dados (Direita) -->
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <div class="row g-3 w-100">
+                                            <!-- Nome do Docente -->
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control form-control-lg"
+                                                        id="nomeDocente"
+                                                        name="nomeDocente"
+                                                        placeholder="Digite o nome completo do docente"
+                                                        maxlength="100"
+                                                        required>
+                                                    <label for="nomeDocente">
+                                                        <i class="bi bi-person me-2"></i>Nome do Docente (máx. 100 caracteres)
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Área de Atuação -->
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control form-control-lg"
+                                                        id="area"
+                                                        name="area"
+                                                        placeholder="Digite a área de atuação"
+                                                        maxlength="100"
+                                                        required>
+                                                    <label for="area">
+                                                        <i class="bi bi-book me-2"></i>Área de Atuação (máx. 100 caracteres)
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- RA do Docente -->
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control form-control-lg"
+                                                        id="raDocente"
+                                                        name="raDocente"
+                                                        placeholder="Digite o RA do docente"
+                                                        maxlength="7"
+                                                        pattern="[0-9]{7}"
+                                                        title="RA deve conter exatamente 7 números">
+                                                    <label for="raDocente">
+                                                        <i class="bi bi-card-text me-2"></i>RA do Docente (7 dígitos)
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Área (tb_docente.area) -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-floating">
-                                            <input type="text"
-                                                class="form-control form-control-lg"
-                                                id="area"
-                                                name="area"
-                                                placeholder="Digite a área de atuação"
-                                                maxlength="100"
-                                                required>
-                                            <label for="area">
-                                                <i class="bi bi-book me-2"></i>Área de Atuação (máx. 100 caracteres)
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- RA do Docente (tb_docente.ra_docente) -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-floating">
-                                            <input type="text"
-                                                class="form-control form-control-lg"
-                                                id="raDocente"
-                                                name="raDocente"
-                                                placeholder="Digite o RA do docente"
-                                                maxlength="7"
-                                                pattern="[0-9]{7}"
-                                                title="RA deve conter exatamente 7 números">
-                                            <label for="raDocente">
-                                                <i class="bi bi-card-text me-2"></i>RA do Docente (7 dígitos)
-                                            </label>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+
+                            <!-- Linha separadora -->
+                            <div class="mb-4">
+                                <hr class="border-2 border-secondary opacity-25">
+                            </div>
+
                             <!-- Seção Dados do Usuário -->
                             <div class="mb-4">
                                 <h5 class="text-primary mb-3">
@@ -151,7 +177,7 @@
                                                 name="nivelAdm"
                                                 required>
                                                 <option value="">Selecione o nível</option>
-                                                <option value="0">Comum (0)</option>
+                                                <option value="0">Usuário Comum (0)</option>
                                                 <option value="1">Administrador (1)</option>
                                             </select>
                                             <label for="nivelAdm">
@@ -230,115 +256,44 @@
     </div>
 
     <script>
-        // Preview da imagem de perfil
-        document.getElementById('fotoPerfil').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            const previewContainer = document.getElementById('previewContainer');
-            const imagePreview = document.getElementById('imagePreview');
-            
-            if (file) {
-                // Validar tipo de arquivo
-                const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-                if (!allowedTypes.includes(file.type)) {
-                    alert('Por favor, selecione apenas arquivos de imagem (JPG, PNG ou GIF).');
-                    this.value = '';
-                    previewContainer.style.display = 'none';
-                    return;
-                }
-                
-                // Validar tamanho do arquivo (2MB = 2 * 1024 * 1024 bytes)
-                const maxSize = 2 * 1024 * 1024;
-                if (file.size > maxSize) {
-                    alert('O arquivo é muito grande. Por favor, selecione uma imagem menor que 2MB.');
-                    this.value = '';
-                    previewContainer.style.display = 'none';
-                    return;
-                }
-                
-                // Mostrar preview
+        // Função para preview da foto do usuário
+        function previewFotoUsuario(input) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    previewContainer.style.display = 'block';
+                    document.getElementById('profileImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Funcionalidade antiga mantida para compatibilidade
+        document.getElementById('fotoPerfil').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const profileImage = document.getElementById('profileImage');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
-            } else {
-                previewContainer.style.display = 'none';
             }
         });
-        
-        // Função para remover foto
-        function removerFoto() {
-            document.getElementById('fotoPerfil').value = '';
-            document.getElementById('previewContainer').style.display = 'none';
-        }
-        
-        // Validação do formulário
-        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-            
-            if (senha !== confirmarSenha) {
-                alert('As senhas não coincidem. Por favor, verifique.');
-                return;
-            }
-            
-            // Processar upload da imagem se houver
-            const fotoInput = document.getElementById('fotoPerfil');
-            if (fotoInput.files.length > 0) {
-                uploadImagemPerfil(fotoInput.files[0]);
-            } else {
-                // Se não há imagem, continuar com o cadastro
-                processarCadastro();
-            }
-        });
-        
-        // Função para upload da imagem via AJAX
-        function uploadImagemPerfil(arquivo) {
-            const formData = new FormData();
-            formData.append('fotoPerfil', arquivo);
-            formData.append('usuario', document.getElementById('usuario').value);
-            
-            fetch('upload-perfil.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.sucesso) {
-                    console.log('Upload realizado:', data.nomeArquivo);
-                    // Continuar com o cadastro incluindo o nome da imagem
-                    processarCadastro(data.nomeArquivo);
-                } else {
-                    alert('Erro no upload da imagem: ' + data.mensagem);
-                }
-            })
-            .catch(error => {
-                console.error('Erro no upload:', error);
-                alert('Erro ao fazer upload da imagem');
-            });
-        }
-        
-        // Função para processar o cadastro
-        function processarCadastro(nomeImagem = null) {
-            // Coletar dados do formulário
-            const dadosFormulario = {
-                nomeDocente: document.getElementById('nomeDocente').value,
-                area: document.getElementById('area').value,
-                raDocente: document.getElementById('raDocente').value,
-                usuario: document.getElementById('usuario').value,
-                nivelAdm: document.getElementById('nivelAdm').value,
-                senha: document.getElementById('senha').value,
-                fotoPerfil: nomeImagem
-            };
-            
-            // Aqui você pode implementar o envio dos dados para o backend
-            console.log('Dados para cadastro:', dadosFormulario);
-            alert('Cadastro realizado com sucesso! (Implementar integração com banco de dados)');
+
+        // Função para resetar a foto para a imagem padrão
+        function resetarFoto() {
+            const profileImage = document.getElementById('profileImage');
+            const fileInput = document.getElementById('fotoPerfil');
+
+            profileImage.src = './img/perfil.jpg';
+            fileInput.value = '';
         }
     </script>
+
 </body>
 
 </html>

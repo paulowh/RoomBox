@@ -1,4 +1,5 @@
-<div class="modal fade" id="modalDocente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDocenteLabel" aria-hidden="true">
+<div class="modal fade" id="modalDocente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalDocenteLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-info text-white">
@@ -6,79 +7,109 @@
                     <i class="bi bi-person-badge-fill me-2"></i>
                     <h1 class="modal-title fs-5 mb-0" id="modalDocenteLabel">Novo Docente</h1>
                 </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
-            
+
             <div class="modal-body p-4">
                 <div class="mb-3">
                     <p class="text-muted mb-0">Preencha as informações abaixo para cadastrar um novo docente</p>
                 </div>
 
-                <form action="./docente-cadastro.php" method="POST" id="form-docente-cadastro">
-                    <div class="row g-3">
-                        <!-- Campo Nome -->
-                        <div class="col-12">
-                            <label for="nome-docente" class="form-label fw-semibold">
-                                <i class="bi bi-person me-2 text-info"></i>Nome Completo
-                            </label>
-                            <input type="text" 
-                                   class="form-control form-control-lg" 
-                                   placeholder="Ex: João Silva Santos" 
-                                   name="txtNome" 
-                                   id="nome-docente"
-                                   required>
+                <form action="./docente-cadastro.php" method="POST" id="form-docente-cadastro"
+                    enctype="multipart/form-data">
+                    <div class="row g-4">
+                        <!-- Coluna da Foto (Esquerda) -->
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="bi bi-camera me-2 text-info"></i>Foto do Docente
+                                </label>
+
+                                <!-- Preview da foto -->
+                                <div class="mb-3">
+                                    <div class="position-relative d-inline-block">
+                                        <img id="preview-foto-docente" src="./img/perfil.jpg" alt="Preview da foto"
+                                            class="img-thumbnail rounded-circle"
+                                            style="width: 150px; height: 150px; object-fit: cover;">
+                                        <div class="position-absolute bottom-0 end-0">
+                                            <label for="foto-docente" class="btn btn-info btn-sm rounded-circle"
+                                                style="width: 40px; height: 40px;">
+                                                <i class="bi bi-camera-fill"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input de arquivo (oculto) -->
+                                <input type="file" id="foto-docente" name="foto" class="d-none"
+                                    accept="image/jpeg,image/jpg,image/png,image/gif"
+                                    onchange="previewFotoDocente(this)">
+
+                                <div class="text-muted small">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Formatos aceitos: JPG, PNG, GIF<br>
+                                    Tamanho máximo: 2MB
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Campo RA -->
-                        <div class="col-md-6">
-                            <label for="ra-docente" class="form-label fw-semibold">
-                                <i class="bi bi-card-text me-2 text-primary"></i>RA do Docente
-                            </label>
-                            <input type="text" 
-                                   class="form-control form-control-lg" 
-                                   placeholder="Ex: 1234567" 
-                                   name="txtRA" 
-                                   id="ra-docente"
-                                   maxlength="7"
-                                   pattern="[0-9]{7}"
-                                   required>
-                        </div>
+                        <!-- Coluna dos Dados (Direita) -->
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <!-- Campo Nome -->
+                                <div class="col-12">
+                                    <label for="nome-docente" class="form-label fw-semibold">
+                                        <i class="bi bi-person me-2 text-info"></i>Nome Completo
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder="Ex: João Silva Santos" name="txtNome" id="nome-docente" required>
+                                </div>
 
-                        <!-- Campo Área -->
-                        <div class="col-md-6">
-                            <label for="area-docente" class="form-label fw-semibold">
-                                <i class="bi bi-mortarboard me-2 text-success"></i>Área de Atuação
-                            </label>
-                            <select id="area-docente" name="txtArea" class="form-select form-select-lg" required>
-                                <option value="" selected disabled>Selecione a área</option>
-                                <option value="Tecnologia da Informação">💻 Tecnologia da Informação</option>
-                                <option value="Enfermagem">🏥 Enfermagem</option>
-                                <option value="Moda">👗 Moda</option>
-                                <option value="Design">🎨 Design</option>
-                                <option value="Administração">📊 Administração</option>
-                                <option value="Contabilidade">💰 Contabilidade</option>
-                                <option value="Recursos Humanos">👥 Recursos Humanos</option>
-                                <option value="Marketing">📱 Marketing</option>
-                                <option value="Logística">🚛 Logística</option>
-                            </select>
-                        </div>
+                                <!-- Campo RA -->
+                                <div class="col-12">
+                                    <label for="ra-docente" class="form-label fw-semibold">
+                                        <i class="bi bi-card-text me-2 text-primary"></i>RA do Docente
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Ex: 1234567"
+                                        name="txtRA" id="ra-docente" maxlength="7" pattern="[0-9]{7}" required>
+                                </div>
 
-                        <!-- Campo Observações (opcional) -->
-                        <div class="col-12">
-                            <label for="observacoes-docente" class="form-label fw-semibold">
-                                <i class="bi bi-chat-text me-2 text-secondary"></i>Observações
-                                <small class="text-muted">(opcional)</small>
-                            </label>
-                            <textarea class="form-control" 
-                                      id="observacoes-docente" 
-                                      name="observacoes" 
-                                      rows="3" 
-                                      placeholder="Adicione informações adicionais sobre o docente..."></textarea>
+                                <!-- Campo Área -->
+                                <div class="col-12">
+                                    <label for="area-docente" class="form-label fw-semibold">
+                                        <i class="bi bi-mortarboard me-2 text-success"></i>Área de Atuação
+                                    </label>
+                                    <select id="area-docente" name="txtArea" class="form-select form-select-lg"
+                                        required>
+                                        <option value="" selected disabled>Selecione a área</option>
+                                        <option value="Tecnologia da Informação">💻 Tecnologia da Informação</option>
+                                        <option value="Enfermagem">🏥 Enfermagem</option>
+                                        <option value="Moda">👗 Moda</option>
+                                        <option value="Design">🎨 Design</option>
+                                        <option value="Administração">📊 Administração</option>
+                                        <option value="Contabilidade">💰 Contabilidade</option>
+                                        <option value="Recursos Humanos">👥 Recursos Humanos</option>
+                                        <option value="Marketing">📱 Marketing</option>
+                                        <option value="Logística">🚛 Logística</option>
+                                    </select>
+                                </div>
+
+                                <!-- Campo Observações (opcional) -->
+                                <div class="col-12">
+                                    <label for="observacoes-docente" class="form-label fw-semibold">
+                                        <i class="bi bi-chat-text me-2 text-secondary"></i>Observações
+                                        <small class="text-muted">(opcional)</small>
+                                    </label>
+                                    <textarea class="form-control" id="observacoes-docente" name="observacoes" rows="3"
+                                        placeholder="Adicione informações adicionais sobre o docente..."></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
-            
+
             <div class="modal-footer bg-light p-3">
                 <div class="d-flex gap-2 w-100 justify-content-end">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -92,3 +123,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    function previewFotoDocente(input) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+
+            // Validar tipo de arquivo
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Formato de arquivo não suportado. Use apenas JPG, PNG ou GIF.');
+                input.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('preview-foto-docente').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Resetar preview quando o modal for fechado
+    document.getElementById('modalDocente').addEventListener('hidden.bs.modal', function () {
+        document.getElementById('preview-foto-docente').src = './img/perfil.jpg';
+        document.getElementById('foto-docente').value = '';
+        document.getElementById('form-docente-cadastro').reset();
+    });
+</script>
